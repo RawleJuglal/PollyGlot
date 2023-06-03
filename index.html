@@ -19,29 +19,19 @@
         </div> 
       </header>
       <main>
-        <section id="conversation-box" class="conversation-box flex flex-column flex-align-center">
-          <h2>Text to translate 👇 </h2>
-          <textarea id="eng-text" placeholder="type something to translate"></textarea>
-          <div id="ai-response" class="ai-response-div">
-            <h2>Your translation </h2>
-            <textarea id="translated-text"></textarea>
-          </div>
+        <h1 id="error" class="error"></h1>
+        <section id="conversationBox" class="conversation-container">
+          
         </section>
-        <section id="lang-inputs" class="lang-inputs-section">  
-          <h2>Select a language 👇</h2>     
-          <input type="radio" id="fr-input" name="translation_language" value="french">
-          <label for="fr-input" id="fr-flag"><span>french</span></label><br>
-          <input type="radio" id="sp-input" name="translation_language" value="spanish">
-          <label for="sp-input" id="sp-flag"><span>spanish</span></label><br>
-          <input type="radio" id="jpn-input" name="translation_language" value="japanese">
-          <label for="jpn-input" id="jpn-flag"><span>japenese</span></label>         
+        <section id="convo-form" class="flex flex-center">
+          <input id="user-input" class="--convo-form-input" type="text">
+          <button id="submit-btn" class="--convo-form-btn" type="submit" disabled></button>
         </section>
-        <section id="actions" class="actions">
-          <button id="submit-btn" type="submit">Translate</button>
-          <button id="reset-btn" class="reset-btn" type="submit">Reset</button>
+        <section id="lang-inputs" class="lang-inputs-section flex flex-evenly">     
+                
         </section>
       </main>
     </div>
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/stretch.js"></script>
   </body>
 </html>
