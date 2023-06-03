@@ -1,16 +1,11 @@
 import './stretch.css'
-import { Configuration, OpenAIApi} from 'openai'
 import worldMap from './src/images/worldmap.png'
 import frFlag from './src/images/fr-flag.png'
 import spFlag from './src/images/sp-flag.png'
 import jpnFlag from './src/images/jpn-flag.png'
 import sendPlane from './src/images/send-plane.svg'
 
-const configuation = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-})
 
-const openai = new OpenAIApi(configuation)
 
 const headerEL = document.querySelector('#header')
 const errorEL = document.querySelector('#error')
@@ -36,15 +31,9 @@ submitBtnEL.addEventListener('click', async()=>{
             role:'user',
             content:`Please interpret in ${desiredLanguage}. Message: ${userInputVal}`
         })
-        const response = await openai.createChatCompletion({
-            model:'gpt-3.5-turbo',
-            messages: [instructionObj, ...conversationArr],
-            presence_penalty:.2,
-        })
         renderUserText(userInputVal);
-        conversationArr.push(response.data.choices[0].message)
-        renderTypewriterText(response.data.choices[0].message.content)
-        submitBtnEL.disabled = false;
+        fetchReply()
+        
     } else {
         errorMessage = 'Please select a language'
         errorEL.textContent = errorMessage;
@@ -61,6 +50,23 @@ textInputEL.addEventListener('change', (event)=>{
         submitBtnEL.disabled = true;
     }
 })
+
+async function fetchReply(){
+    const url = `https://sparkly-croquembouche-0cee24.netlify.app/.netlify/functions/fetchAI`
+
+    const response = await fetch(url, {
+        method:'POST',
+        headers:{
+            'content-type':'text/plain'
+        },
+        body:[instructionObj, ...conversationArr]
+    })
+
+    const data = await response.json()
+    conversationArr.push(data.reply.choices[0].message)
+    renderTypewriterText(data.reply.choices[0].message.content)
+    submitBtnEL.disabled = false;
+}
 
 function renderHeader(){
     headerEL.style.backgroundImage = `url(${worldMap})`
