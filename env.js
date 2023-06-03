@@ -1,5 +1,5 @@
 export const process = {
     env: {
-        OPENAI_API_KEY:'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'
+        OPENAI_API_KEY:'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'
     }
 }

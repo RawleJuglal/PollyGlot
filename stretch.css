@@ -73,9 +73,14 @@ table {
 .flex-align-center{align-items: center;}
 .flex-wrap{flex-wrap: wrap;}
 
+.flag.selected-border{border:1px solid var(--lime-green)}
+.error{color:red; font-weight:bold;}
+
 #app{
   max-width:23.4375rem;
   margin:3rem auto;
+  border:1px solid #161616;
+  border-radius: .3125rem;
 }
 
 .--header{
@@ -102,6 +107,12 @@ table {
   font-weight:600;
   font-size:.763125rem;
   line-height:150%;
+}
+
+#error{
+  text-align: center;
+  width:100%;
+  margin:1rem;
 }
 
 .conversation-container{
@@ -181,4 +192,10 @@ input:-webkit-autofill:active {
 
 .lang-inputs-section>img{
   border:1px solid #161616;
+}
+
+@media (max-width:750px) {
+  #app{
+    margin:0 auto;
+  }
 }
