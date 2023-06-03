@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PollyGlot</title>
+  </head>
+  <body>
+    <div id="app">
+      <header id="header" class="--header flex flex-align-center">
+        <img class="--header-logo" src="/parrot.png" alt="">
+        <div class="header-text">
+          <h1>PollyGlot</h1>
+          <p>Perfect Translations Every Time</p>
+        </div> 
+      </header>
+      <main>
+        <section id="conversation-box" class="conversation-box flex flex-column flex-align-center">
+          <h2>Text to translate 👇 </h2>
+          <textarea id="eng-text" placeholder="type something to translate"></textarea>
+          <div id="ai-response" class="ai-response-div">
+            <h2>Your translation </h2>
+            <textarea id="translated-text"></textarea>
+          </div>
+        </section>
+        <section id="lang-inputs" class="lang-inputs-section">  
+          <h2>Select a language 👇</h2>     
+          <input type="radio" id="fr-input" name="translation_language" value="french">
+          <label for="fr-input" id="fr-flag"><span>french</span></label><br>
+          <input type="radio" id="sp-input" name="translation_language" value="spanish">
+          <label for="sp-input" id="sp-flag"><span>spanish</span></label><br>
+          <input type="radio" id="jpn-input" name="translation_language" value="japanese">
+          <label for="jpn-input" id="jpn-flag"><span>japenese</span></label>         
+        </section>
+        <section id="actions" class="actions">
+          <button id="submit-btn" type="submit">Translate</button>
+          <button id="reset-btn" class="reset-btn" type="submit">Reset</button>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
