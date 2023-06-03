@@ -1,4 +1,3 @@
-// Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
 import { Configuration, OpenAIApi} from 'openai'
 
 const configuation = new Configuration({
@@ -9,6 +8,7 @@ const openai = new OpenAIApi(configuation)
 
 const handler = async (event) => {
   try {
+    console.log(event.body)
     const response = await openai.createChatCompletion({
       model:'gpt-3.5-turbo',
       messages: event.body,
