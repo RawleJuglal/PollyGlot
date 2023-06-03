@@ -20,7 +20,7 @@ const conversationArr = []
 
 const instructionObj = {
     role: 'system',
-    content: `You are a highly skilled interpreter that interprets and looks for grammatical and punctuation errors`
+    content: `You are a highly skilled interpreter that interprets and looks for grammatical and punctuation errors`,
 }
 
 submitBtnEL.addEventListener('click', async()=>{
@@ -29,7 +29,7 @@ submitBtnEL.addEventListener('click', async()=>{
         errorEL.style.display = 'none' 
         conversationArr.push({
             role:'user',
-            content:`Please interpret in ${desiredLanguage}. Message: ${userInputVal}`
+            content:`Please interpret in ${desiredLanguage}. Message: ${userInputVal}`,
         })
         renderUserText(userInputVal);
         fetchReply()
@@ -59,7 +59,7 @@ async function fetchReply(){
         headers:{
             'content-type':'text/plain',
         },
-        body:[instructionObj, ...conversationArr]
+        body:JSON.stringify([instructionObj, ...conversationArr])
     })
 
     const data = await response.json()

@@ -11,7 +11,7 @@ const handler = async (event) => {
     console.log(event.body)
     const response = await openai.createChatCompletion({
       model:'gpt-3.5-turbo',
-      messages: JSON.stringify(event.body),
+      messages: event.body,
       presence_penalty:.2,
   })
     return {
