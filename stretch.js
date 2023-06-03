@@ -53,13 +53,14 @@ textInputEL.addEventListener('change', (event)=>{
 
 async function fetchReply(){
     const url = 'https://sparkly-croquembouche-0cee24.netlify.app/.netlify/functions/fetchAI'
-
+    let conversationStr = JSON.stringify([instructionObj, ...conversationArr])
+    console.log(conversationStr)
     const response = await fetch(url, {
         method: 'POST',
         headers: {
             'content-type': 'text/plain',
         },
-        body: JSON.stringify([instructionObj, ...conversationArr])
+        body: conversationStr
     })
 
     const data = await response.json()

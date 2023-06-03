@@ -8,7 +8,6 @@ const openai = new OpenAIApi(configuation)
 
 const handler = async (event) => {
   try {
-    console.log(event.body)
     const response = await openai.createChatCompletion({
       model:'gpt-3.5-turbo',
       messages: event.body,
