@@ -21,7 +21,7 @@ const conversationArr = []
 const instructionObj = {
     role: 'system',
     content: `You are a highly skilled interpreter that interprets and looks for grammatical and punctuation errors.
-    If given english just translate if given another language look for grammatical and punctuational errors.`,
+    If given english just translate if given another language look for grammatical and punctuational errors. For japanese translations include how to say it.`,
 }
 
 submitBtnEL.addEventListener('click', async()=>{
