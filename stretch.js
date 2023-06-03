@@ -1,5 +1,4 @@
 import './stretch.css'
-import { process } from './env'
 import { Configuration, OpenAIApi} from 'openai'
 import worldMap from './src/images/worldmap.png'
 import frFlag from './src/images/fr-flag.png'
