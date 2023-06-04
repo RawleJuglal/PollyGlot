@@ -198,4 +198,13 @@ input:-webkit-autofill:active {
   #app{
     margin:0 auto;
   }
+
+  section#convo-form{
+    max-width:17.5rem;
+    margin:0 auto;
+  }
+
+  .--convo-form-input{
+    max-width:10rem;
+  }
 }
